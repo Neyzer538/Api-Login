@@ -2,21 +2,33 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework import generics, status
 from rest_framework.response import Response
+from django.contrib.auth.hashers import check_password
 from .models import Usuario, Rol
 from .serializer import UsuarioSerializer, RolSerializer
 
-# Create your views here.
 class LoginView(APIView):
     def post(self, request):
-        nombre = request.data.get("nombre")   # ahora es username
+        nombre = request.data.get("nombre")   
         contrasenia = request.data.get("contrasenia")
 
         try:
-            usuario = Usuario.objects.get(nombre=nombre, contrasenia=contrasenia, estado=True)
-            serializer = UsuarioSerializer(usuario)
-            return Response({"message": "Login exitoso", "usuario": serializer.data}, status=status.HTTP_200_OK)
+            usuario = Usuario.objects.get(nombre=nombre, estado=True)
+            if check_password(contrasenia, usuario.contrasenia):
+                serializer = UsuarioSerializer(usuario)
+                return Response(
+                    {"message": "Login exitoso", "usuario": serializer.data},
+                    status=status.HTTP_200_OK
+                )
+            else:
+                return Response(
+                    {"error": "Credenciales inválidas"},
+                    status=status.HTTP_401_UNAUTHORIZED
+                )
         except Usuario.DoesNotExist:
-            return Response({"error": "Credenciales inválidas"}, status=status.HTTP_401_UNAUTHORIZED)
+            return Response(
+                {"error": "Credenciales inválidas"},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
 
 class ListaUsuarioView(generics.ListCreateAPIView):
     queryset = Usuario.objects.all()
