@@ -1,37 +1,52 @@
 [
-    {
-        "id": 1,
-        "nombre": "Administrador",
-        "descripcion": "Acceso completo al sistema",
-        "estado": true,
-        "fechaMod": "2026-04-17T21:32:06.476057Z"
-    },
-    {
-        "id": 2,
-        "nombre": "Editor",
-        "descripcion": "Puede crear y modificar contenido",
-        "estado": true,
-        "fechaMod": "2026-04-17T21:32:25.983593Z"
-    },
-    {
-        "id": 3,
-        "nombre": "Estudiante",
-        "descripcion": "Acceso limitado a recursos educativos",
-        "estado": true,
-        "fechaMod": "2026-04-17T21:32:50.295985Z"
-    },
-    {
-        "id": 4,
-        "nombre": "Profesor",
-        "descripcion": "Puede gestionar cursos y estudiantes",
-        "estado": true,
-        "fechaMod": "2026-04-17T21:32:58.262986Z"
-    },
-    {
-        "id": 5,
-        "nombre": "Invitado",
-        "descripcion": "Acceso temporal y restringido",
-        "estado": false,
-        "fechaMod": "2026-04-17T21:33:06.636616Z"
+  {
+    "model": "api_login.rol",
+    "pk": 1,
+    "fields": {
+      "nombre": "Administrador",
+      "descripcion": "Acceso completo al sistema",
+      "estado": true,
+      "fechaMod": "2026-04-17T21:32:06.476057Z"
     }
+  },
+  {
+    "model": "api_login.rol",
+    "pk": 2,
+    "fields": {
+      "nombre": "Editor",
+      "descripcion": "Puede crear y modificar contenido",
+      "estado": true,
+      "fechaMod": "2026-04-17T21:32:25.983593Z"
+    }
+  },
+  {
+    "model": "api_login.rol",
+    "pk": 3,
+    "fields": {
+      "nombre": "Estudiante",
+      "descripcion": "Acceso limitado a recursos educativos",
+      "estado": true,
+      "fechaMod": "2026-04-17T21:32:50.295985Z"
+    }
+  },
+  {
+    "model": "api_login.rol",
+    "pk": 4,
+    "fields": {
+      "nombre": "Profesor",
+      "descripcion": "Puede gestionar cursos y estudiantes",
+      "estado": true,
+      "fechaMod": "2026-04-17T21:32:58.262986Z"
+    }
+  },
+  {
+    "model": "api_login.rol",
+    "pk": 5,
+    "fields": {
+      "nombre": "Invitado",
+      "descripcion": "Acceso temporal y restringido",
+      "estado": false,
+      "fechaMod": "2026-04-17T21:33:06.636616Z"
+    }
+  }
 ]
