@@ -63,7 +63,6 @@ WSGI_APPLICATION = 'login.wsgi.application'
 # Base de datos: Render usa DATABASE_URL
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://postgres:postgres@localhost:5432/postgres',
         conn_max_age=600,
         ssl_require=True
     )
